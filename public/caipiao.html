@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>中彩神器</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0%;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+            display: flex;
+        }
+
+        .div1 {
+            width: 50%;
+            height: 100%;
+            background: skyblue;
+            text-align: center;
+        }
+
+        .div1 button {
+            background: chocolate;
+            width: 100px;
+            height: 60px;
+            border: none;
+            font-size: 18px;
+            color: #ffffff;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+
+        .div2 {
+            width: 50%;
+            height: 100%;
+            background: springgreen;
+            text-align: center;
+        }
+
+        .div2 button {
+            background: chocolate;
+            width: 100px;
+            height: 60px;
+            border: none;
+            font-size: 18px;
+            color: #ffffff;
+            border-radius: 10px;
+            margin-top: 50px;
+        }
+
+        ul {
+            display: none;
+            justify-content: space-around;
+            margin-top: 100px;
+        }
+
+        ul li {
+            list-style-type: none;
+            width: 40px;
+            height: 40px;
+            background: red;
+            border-radius: 40px;
+            color: #ffffff;
+            font-size: 20px;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+        }
+
+        ul li:nth-child(6) {
+            list-style-type: none;
+            width: 40px;
+            height: 40px;
+            background: blue;
+            border-radius: 40px;
+            color: #ffffff;
+            font-size: 20px;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+        }
+
+        ul li:nth-child(7) {
+            list-style-type: none;
+            width: 40px;
+            height: 40px;
+            background: blue;
+            border-radius: 40px;
+            color: #ffffff;
+            font-size: 20px;
+            text-align: center;
+            line-height: 40px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="div1">
+        <h1>内部机密 严禁外传</h1>
+        <h3>缪代旭专属彩票预测神器</h3>
+        <button class="btn1">点击预测</button>
+        <ul class="ul1">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+
+    </div>
+    <div class='div2'>
+        <h1>内部机密 严禁外传</h1>
+        <h3>宿喻蝉专属彩票预测神器</h3>
+        <button class="btn2">点击预测</button>
+        <ul class="ul2">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+
+</body>
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
+<script>
+    $(function () {
+        $('.btn1').click(function () {
+            $('.ul1').css('display', 'flex')
+            var head = [];
+            var foot = [];
+            //生成的随机数不能重复
+            for (var i = 0; i < 5; i++) {
+                var red = parseInt(Math.random() * 36 - 1)
+                head.push(red);
+            }
+            for (var i = 0; i < 2; i++) {
+                var blu = parseInt(Math.random() * 13 - 1)
+                foot.push(blu)
+            }
+            var center = head.concat(foot)
+            for (var i = 0; i < center.length; i++) {
+                $('.ul1 li:nth-child(' + (i + 1) + ')').html(center[i])
+            }
+        })
+        $('.btn2').click(function () {
+            $('.ul2').css('display', 'flex')
+            var head = [];
+            var foot = [];
+            //生成的随机数不能重复
+            for (var i = 0; i < 5; i++) {
+                var red = parseInt(Math.random() * 36 - 1)
+                head.push(red);
+            }
+            for (var i = 0; i < 2; i++) {
+                var blu = parseInt(Math.random() * 13 - 1)
+                foot.push(blu)
+            }
+            var center = head.concat(foot)
+            for (var i = 0; i < center.length; i++) {
+                $('.ul2 li:nth-child(' + (i + 1) + ')').html(center[i])
+            }
+        })
+    })
+</script>
+
+</html>
