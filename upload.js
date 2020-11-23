@@ -7,27 +7,27 @@ var app=new express();
 app.use(express.static(path.join(__dirname,'public')));
 app.get('/',(req,res)=>{
     res.header('Access-Control-Allow-Origin', '*');
-    console.log(req.url)
     res.sendFile(path.join(__dirname,'public/upload.html'))
-    //res.sendFile('public/upload.html',{root:__dirname})
     // 第四步:创建main.html文件
 })
 app.post('/ajaxUpload',(req,res)=>{
     res.header('Access-Control-Allow-Origin', '*');
-    console.log(req.url)
     var form=new fm.IncomingForm();
     form.uploadDir=path.join(__dirname,'public/uploads');
     // uploadDir设置文件的上传的路径
     form.parse(req);
-    form.on('end',function(){
-        console.log('upload success')
-    })
     form.on('file',function(field,file){
         fs.renameSync(file.path,path.join(form.uploadDir,'/icon.png'))
     })
-    res.send('./uploads/icon.png')
+    form.on('end',function(){
+        console.log('upload success')
+    })
+    setTimeout(() => {
+        res.send('http://127.0.0.1:5000/uploads/icon.png')
+    }, 500);
+    //res.send('./uploads/icon.png')
+  
 })
-// app.listen(5000)
 var server=app.listen(5000,function () {
     var host=server.address().address;
     var port=server.address().port;

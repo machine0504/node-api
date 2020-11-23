@@ -15,38 +15,53 @@
 </head>
 
 <body>
-    <img src="./img/lunbo1.jpg" id="imga"><br><br><br>
+    <!-- <img src="./img/lunbo1.jpg" id="imga"><br><br><br> -->
+    <img src="http://127.0.0.1:5000/img/lunbo1.jpg" id="imga"><br><br><br>
     <input type="file" id="inputa"><br><br><br>
     <button id="buta">上传</button>
 
 </body>
-<!-- <script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script> -->
+<script src="https://cdn.staticfile.org/jquery/1.10.2/jquery.min.js"></script>
 <script>
-    var imga = document.getElementById('imga');
-    var buta = document.getElementById('buta');
-    var inputa = document.getElementById('inputa');
-    buta.onclick = function () {
-        var getData = inputa.files[0];
-        console.log(getData)
-        var fs = new FormData();
-        fs.append('imageIcon', getData);
-        var xhr = new XMLHttpRequest();
-        xhr.open('POST', 'http://127.0.0.1:5000/ajaxUpload', true)
-        xhr.send(fs);
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4) {
-                imga.src = xhr.responseText;
-            }
-        }
-    }
-    // $(function(){
-    //     $('#buta').click(function(){
-    //         $.ajax({
-    //             method:'POST',
-    //             data:
-    //         })
-    //     })
-    // })
+    // var imga = document.getElementById('imga');
+    // var buta = document.getElementById('buta');
+    // var inputa = document.getElementById('inputa');
+    // buta.onclick = function () {
+    //     console.log(inputa.files)
+    //     var getData = inputa.files[0];
+    //     console.log(getData)
+    //     var fs = new FormData();
+    //     fs.append('imageIcon', getData);
+    //     var xhr = new XMLHttpRequest();
+    //     xhr.open('POST', 'http://127.0.0.1:5000/ajaxUpload', true)
+    //     xhr.send(fs);
+    //     xhr.onreadystatechange = function () {
+    //         if (xhr.readyState === 4 && xhr.status === 200) {
+    //             imga.src = xhr.responseText;
+    //             console.log('ssss')
+    //             console.log(imga.src)
+    //         }
+    //     }
+    // }
+    $(function () {
+        console.log(new Date().getTime())
+        $('#buta').click(function () {
+            var inputa = document.getElementById('inputa');
+            var getData = inputa.files[0];
+            var fs = new FormData();
+            fs.append('imageIcon', getData);
+            $.ajax({
+                method: 'POST',
+                url:'http://127.0.0.1:5000/ajaxUpload',
+                processData:false,
+                contentType:false,
+                data: fs,
+                success: function (data) {
+                    $('#imga').attr('src', data)
+                }
+            })
+        })
+    })
 </script>
 
 </html>

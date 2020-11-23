@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    var data16 = {
+    "status": 1,
+    "code": 200,
+    "data": [{
+        "attrid": "964",
+        "title": "品牌",
+        "param": [{
+            "pid": "965",
+            "title": "美动态"
+        }, {
+            "pid": "966",
+            "title": "恒源祥"
+        }, {
+            "pid": "1020",
+            "title": "筱岚"
+        }, {
+            "pid": "1021",
+            "title": "娇茹妮"
+        }, {
+            "pid": "1022",
+            "title": "香后"
+        }]
+    }, {
+        "attrid": "967",
+        "title": "选购热点",
+        "param": [{
+            "pid": "968",
+            "title": "加肥加大"
+        }, {
+            "pid": "969",
+            "title": "藏肉"
+        }, {
+            "pid": "970",
+            "title": "修身显瘦"
+        }]
+    }]
+}
+var data17 = {
+    "status": 1,
+    "code": 200,
+    "data": [{
+        "attrid": "974",
+        "title": "品牌",
+        "param": [{
+            "pid": "975",
+            "title": "波司登"
+        }, {
+            "pid": "976",
+            "title": "adidas"
+        }]
+    }, {
+        "attrid": "977",
+        "title": "衣长",
+        "param": [{
+            "pid": "978",
+            "title": "中长款"
+        }, {
+            "pid": "979",
+            "title": "常规"
+        }, {
+            "pid": "980",
+            "title": "长款"
+        }, {
+            "pid": "981",
+            "title": "短款"
+        }, {
+            "pid": "982",
+            "title": "超短"
+        }]
+    }]
+}
+    var allData = {
+    "status": 1,
+    "code": 200,
+    "data": [{
+        "title": "连衣裙",
+        "data": data16
+    }, {
+        "title": "羽绒服",
+        "data": data17
+    }]
+}
+var stu = [
+    {
+        name: '张三',
+        gender: '男',
+        age: 20
+    },
+    {
+        name: '王小毛',
+        gender: '男',
+        age: 20
+    },
+    {
+        name: '李四',
+        gender: '男',
+        age: 20
+    }
+]
+var data={}
+function getStu(element){
+    if(element.name=='李四'){
+        console.log(element)
+    }
+}
+stu.find(getStu)
+allData.data.find(element=>{
+   if( element.title=='连衣裙'){
+       console.log(element)
+   }
+})
+</script>
+</html>
